@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "user";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý</title>
+    <link rel="stylesheet" href="~/Assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Assets/admin/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="~/Assets/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="~/Assets/admin/css/style.css">
+    <link rel="stylesheet" href="~/Assets/admin/css/product.css">
+</head>
+<body>
+    
+    <section class="home-section">
+        <div class="home-content">
+            <div class="manager-product">
+                <div class="title">Danh Sách Tài Khoản</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row element-button">
+                            <div class="col-sm-2">
+                                <a class="btn btn-add btn-sm" href="addUser" title="Thêm">
+                                    <i class="fas fa-plus"></i>
+                                    Thêm tài khoản
+                                </a>
+                            </div>
+                            <div class="col-sm-2">
+                                <a class="btn btn-delete btn-sm" type="button" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i> Xóa tất cả
+                                </a>
+                            </div>
+                        </div>
+                        <table id="table-id" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Mã tài khoản</th>
+                                    <th scope="col">Tên người dùng</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mật khẩu</th>
+                                    <th scope="col">Quyền</th>
+                                    <th scope="col">Xóa tài khoản</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">201001</th>
+                                    <td>Hồ Thanh Hoài An</td>
+                                    <td>hoaian1232812@gmail.com</td>
+                                    <td>hoaian1412123</td>
+                                    <td>User</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">201002</th>
+                                    <td>K Ân Thiên Phúc</td>
+                                    <td>20130096@gmail.com</td>
+                                    <td>abc123</td>
+                                    <td>User</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">201003</th>
+                                    <td>Vưu Trường Nhật Thanh</td>
+                                    <td>20130404@gmail.com</td>
+                                    <td>qert123</td>
+                                    <td>User</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Assets/bootstrap/js/jquery.min.js"></script>
+    <script src="~/Assets/admin/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/Assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+$("#table-id").DataTable();
+    </script>
+</body>
+</html>
+

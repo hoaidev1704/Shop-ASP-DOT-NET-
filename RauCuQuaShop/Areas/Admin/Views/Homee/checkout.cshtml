@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewBag.Title = "checkout";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý</title>
+    <link rel="stylesheet" href="~/Assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Assets/admin/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="~/Assets/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="~/Assets/admin/css/style.css">
+    <link rel="stylesheet" href="~/Assets/admin/css/checkout.css">
+</head>
+<body>
+   
+    <section class="home-section">
+        <div class="home-content">
+            <div class="manager-checkout">
+                <div class="title">Quản Lý Đơn Hàng</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tab row element-button">
+                            <button class="tablinks col-sm-2" id="defaultOpen" onclick="openCity(event, 'tab1')">
+                                Chờ xác
+                                nhận
+                            </button>
+                            <button class="tablinks col-sm-2" onclick="openCity(event, 'tab2')">Tất cả đơn hàng</button>
+                            <button class="tablinks col-sm-2" onclick="openCity(event, 'tab3')">Đã hủy</button>
+                        </div>
+                        <div id="tab1" class="tabcontent">
+                            <table id="table-id-1" class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Mã đơn hàng</th>
+                                        <th scope="col">Tên khách hàng</th>
+                                        <th scope="col">Ngày đặt</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Tổng tiền</th>
+                                        <th style="display:flex;" scope="col">
+                                            <button id="check-all" class="btn btn-primary btn-sm tick" type="button"
+                                                    title="check">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                            <button id="delete-all" class="btn btn-primary btn-sm trash" type="button"
+                                                    title="Xóa">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">000001</th>
+                                        <td>Hồ Thanh Hoài An</td>
+                                        <td>12/11/2022</td>
+                                        <td>09xxxxxxxx</td>
+                                        <td>7/56 Đường 182, P.Tăng Nhơn Phú A, Quận 9, TP.Hồ Chí Minh</td>
+                                        <td>400.000 VND</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm tick" type="button" title="check">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                            <button class="btn btn-primary btn-sm trash" type="button" title="Xóa">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">000001</th>
+                                        <td>Hồ Thanh Hoài An</td>
+                                        <td>12/11/2022</td>
+                                        <td>09xxxxxxxx</td>
+                                        <td>7/56 Đường 182, P.Tăng Nhơn Phú A, Quận 9, TP.Hồ Chí Minh</td>
+                                        <td>400.000 VND</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm tick" type="button" title="check">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                            <button class="btn btn-primary btn-sm trash" type="button" title="Xóa">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="tab2" class="tabcontent">
+                            <table id="table-id-2" class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Mã đơn hàng</th>
+                                        <th scope="col">Tên khách hàng</th>
+                                        <th scope="col">Ngày đặt</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Tổng tiền</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">000001</th>
+                                        <td>Hồ Thanh Hoài An</td>
+                                        <td>12/11/2022</td>
+                                        <td>09xxxxxxxx</td>
+                                        <td>7/56 Đường 182, P.Tăng Nhơn Phú A, Quận 9, TP.Hồ Chí Minh</td>
+                                        <td>400.000 VND</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">000001</th>
+                                        <td>Hồ Thanh Hoài An</td>
+                                        <td>12/11/2022</td>
+                                        <td>09xxxxxxxx</td>
+                                        <td>7/56 Đường 182, P.Tăng Nhơn Phú A, Quận 9, TP.Hồ Chí Minh</td>
+                                        <td>400.000 VND</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="tab3" class="tabcontent">
+                            <table id="table-id" class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Mã đơn hàng</th>
+                                        <th scope="col">Tên khách hàng</th>
+                                        <th scope="col">Ngày đặt</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Tổng tiền</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">000001</th>
+                                        <td>Hồ Thanh Hoài An</td>
+                                        <td>12/11/2022</td>
+                                        <td>09xxxxxxxx</td>
+                                        <td>7/56 Đường 182, P.Tăng Nhơn Phú A, Quận 9, TP.Hồ Chí Minh</td>
+                                        <td>400.000 VND</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">000001</th>
+                                        <td>Hồ Thanh Hoài An</td>
+                                        <td>12/11/2022</td>
+                                        <td>09xxxxxxxx</td>
+                                        <td>7/56 Đường 182, P.Tăng Nhơn Phú A, Quận 9, TP.Hồ Chí Minh</td>
+                                        <td>400.000 VND</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Assets/bootstrap/js/jquery.min.js"></script>
+    <script src="~/Assets/admin/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/Assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Assets/admin/js/main.js"></script>
+    <script>
+    $("#table-id").DataTable();
+    $("#table-id-1").DataTable();
+    $("#table-id-2").DataTable();
+    </script>
+</body>
+</html>
+

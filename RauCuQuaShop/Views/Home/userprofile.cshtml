@@ -1,0 +1,279 @@
+﻿
+@{
+    ViewBag.Title = "userprofile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trang cá nhân</title>
+    <link rel="stylesheet" href="~/Assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="~/Assets/website/css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/website/css/userprofile.css" type="text/css">
+
+</head>
+<body>
+
+
+    <br>
+    <div class="tabtab">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Thông tin cá nhân</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris')">Tình trạng đơn hàng</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">Đổi mật khẩu</button>
+        </div>
+
+        <div id="London" class="tabcontent">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Thông tin cá nhân</h4>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="username" class="col-4 col-form-label">Tên*</label>
+                                    <div class="col-8">
+                                        <input id="username" name="username" placeholder="Tên người dùng"
+                                               class="form-control here" required="required" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-4 col-form-label">Tên</label>
+                                    <div class="col-8">
+                                        <input id="name" name="name" placeholder="First Name" class="form-control here"
+                                               type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="lastname" class="col-4 col-form-label">Họ</label>
+                                    <div class="col-8">
+                                        <input id="lastname" name="lastname" placeholder="Last Name"
+                                               class="form-control here" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="text" class="col-4 col-form-label">Biệt danh*</label>
+                                    <div class="col-8">
+                                        <input id="text" name="text" placeholder="Nick Name" class="form-control here"
+                                               required="required" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="select" class="col-4 col-form-label">Tên hiển thị</label>
+                                    <div class="col-8">
+                                        <select id="select" name="select" class="custom-select">
+                                            <option value="admin">Người dùng</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-4 col-form-label">Email*</label>
+                                    <div class="col-8">
+                                        <input id="email" name="email" placeholder="Email" class="form-control here"
+                                               required="required" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="offset-4 col-8">
+                                        <button name="submit" type="submit" class="btn btn-black"
+                                                style="background-color: var(--main-color); color: white">
+                                            Cập nhật thông
+                                            tin cá nhân
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Paris" class="tabcontent">
+          
+            <div class="tab-1">
+                <button class="tablinks-1" onclick="openCity1(event, 'tab1')" id="default">Chờ xác nhận</button>
+                <button class="tablinks-1" onclick="openCity1(event, 'tab2')">Đã giao</button>
+                <button class="tablinks-1" onclick="openCity1(event, 'tab3')">Đã hủy</button>
+            </div>
+
+            <div id="tab1" class="tabcontent-1">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Khách hàng</th>
+                                    <th scope="col">Ngày đặt</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Tổng tiền</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">123123</th>
+                                    <td>Hồ Thanh Hoài An</td>
+                                    <td>11/11/2022</td>
+                                    <td>09xxxxxxx</td>
+                                    <td>250.000 VND</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">123123</th>
+                                    <td>Hồ Thanh Hoài An</td>
+                                    <td>11/11/2022</td>
+                                    <td>09xxxxxxx</td>
+                                    <td>250.000 VND</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">123123</th>
+                                    <td>Hồ Thanh Hoài An</td>
+                                    <td>11/11/2022</td>
+                                    <td>09xxxxxxx</td>
+                                    <td>250.000 VND</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="tab2" class="tabcontent-1">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Khách hàng</th>
+                                    <th scope="col">Ngày đặt</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Tổng tiền</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">123123</th>
+                                    <td>Hồ Thanh Hoài An</td>
+                                    <td>11/11/2022</td>
+                                    <td>09xxxxxxx</td>
+                                    <td>250.000 VND</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">123123</th>
+                                    <td>Hồ Thanh Hoài An</td>
+                                    <td>11/11/2022</td>
+                                    <td>09xxxxxxx</td>
+                                    <td>250.000 VND</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="tab3" class="tabcontent-1">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Khách hàng</th>
+                                    <th scope="col">Ngày đặt</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Tổng tiền</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">123123</th>
+                                    <td>Hồ Thanh Hoài An</td>
+                                    <td>11/11/2022</td>
+                                    <td>09xxxxxxx</td>
+                                    <td>250.000 VND</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+          
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Đổi mật khẩu</h4>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group row">
+                                <label for="username" class="col-4 col-form-label">Mật khẩu hiện tại</label>
+                                <div class="col-8">
+                                    <input name="username"
+                                           class="form-control here" required="required" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">Mật khẩu mới</label>
+                                <div class="col-8">
+                                    <input name="name" class="form-control here"
+                                           type="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lastname" class="col-4 col-form-label">Nhập lại mật khẩu mới</label>
+                                <div class="col-8">
+                                    <input name="lastname"
+                                           class="form-control here" type="password">
+                                </div>
+                            </div>
+                         
+
+                            <div class="form-group row">
+                                <div class="offset-4 col-8">
+                                    <button name="submit" type="submit" class="btn btn-black"
+                                            style="background-color: var(--main-color); color: white">
+                                        Hoàn tất
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+   
+
+    <script src="~/Assets/bootstrap/js/jquery.min.js"></script>
+    <script src="~/Assets/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Assets/website/js/main.js"></script>
+    <script src="~/Assets/website/js/userprofile.js"></script>
+    <script>
+    document.getElementById("defaultOpen").click();
+    document.getElementById("default").click();
+    </script>
+</body>
+
+</html>
+
