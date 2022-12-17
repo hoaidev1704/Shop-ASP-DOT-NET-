@@ -1,6 +1,13 @@
-﻿using System;
+﻿
+
+using RauCuQuaShop.Code;
+using RauCuQuaShop.Models;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,14 +22,14 @@ namespace RauCuQuaShop.Controllers
 
         public ActionResult login()
         {
-           
+
 
             return View();
         }
 
         public ActionResult About()
         {
-          
+
 
             return View();
         }
@@ -86,7 +93,7 @@ namespace RauCuQuaShop.Controllers
 
             return View();
         }
-           public ActionResult userprofile()
+        public ActionResult userprofile()
         {
 
 
@@ -98,5 +105,38 @@ namespace RauCuQuaShop.Controllers
 
             return View();
         }
+        public ActionResult signup()
+        {
+
+
+            return View();
+        }
+        [HttpGet]
+        public ActionResult loginn()
+        {
+
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult loginn(LoginModel model)
+        {
+
+
+            var result = new Moddel.AccountModel().loginn(model.UserName, model.PassWord);
+            if(result && ModelState.IsValid)
+            {
+                SessionHelper.Setsession(new UserSession() { UserName = model.UserName });
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
+            return View(model);
+        }
+
+      
     }
 }

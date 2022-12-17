@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model RauCuQuaShop.Models.LoginModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Assets/bootstrap/css/bootstrap.css" type="text/css">
+    <title>Đăng nhập</title>
+    <style>
+        #thanh {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 80%;
+
+            padding-left: 388px;
+            padding-top: 40px;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+
+        span.psw {
+            display: block;
+            float: none;
+        }
+
+        .cancelbtn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+     
+    <div id="thanh">
+        <h2>Đăng nhập</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+        <form>
+
+
+            <div class="container">
+                <label for="uname"><b>Email</b></label>
+                @Html.TextBoxFor(model => model.UserName, new { @placeholder = "Nhập email" })
+
+
+
+
+                <label for="psw"><b>Mật khẩu</b></label>
+                @Html.TextBoxFor(model => model.PassWord, new { @placeholder = "Nhập password", @type = "password" })
+
+
+
+                <button type="submit">Đăng nhập</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Nhớ mật khẩu
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+
+                <span class="psw"> <a href="forgetpass">Quên mật khẩu?</a></span>
+                <span class="psw"> <a href="">Chưa có tài khoản? Đăng kí ngay</a></span>
+            </div>
+        </form>
+    </div>
+    }
+
+
+
+
+</body>
+</html>
