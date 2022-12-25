@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    .chuacotaikhoan{
+        padding-left:30px;
+    }
+    .buttonsubmit{
+        background-color: #82cd47;
+        color: white;
+        border: none;
+    }
+</style>
+
+<table align="center">
+    <h2 style="text-align:center">ĐĂNG NHẬP</h2>
+ 
+    @using (Html.BeginForm())
+    {
+        <tr>
+         
+                <h4 style="color: red;">@ViewBag.Thongbao</h4>
+            
+        </tr>
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td> Tên đăng nhập:</td>
+            <td>
+                @Html.TextBox("TenDN")
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Mật khẩu:</td>
+            <td>
+                @Html.Password("Matkhau")
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="submit" class="buttonsubmit" value="Đăng nhập" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <li class="nav-link active" style="vertical-align:central; color:white;">
+                    <a class="nav-link a1"> @Html.ActionLink("Chưa có tài khoản?", "DangKy", "Nguoidung", null, new { @class = "chuacotaikhoan" }) </a>
+                </li>
+            </td>
+
+        </tr>
+
+    }
+
+</table>
+
+

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/css/shop-homepage.css" rel="stylesheet">
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+    <style>
+        .hearderadmin{
+            background-color: #82cd47;
+        }
+        .a1{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <br /><br />
+    </div>
+    <div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark hearderadmin fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="~/BookStore/Index">TAP ORGANIC</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-link active" style="vertical-align:central">
+                            <a class="nav-link"> @Html.ActionLink("Trang chủ", "Index", "Admin", null, new {@class="a1"}) </a>
+                        </li>
+                        @*<li class="nav-link" style="vertical-align:central">
+                            <a class="nav-link"> @Html.ActionLink("Quản lý chủ đề", "Sanpham", "Admin") </a>
+                        </li>*@
+                        @*<li class="nav-link" style="vertical-align:central">
+                            <a class="nav-link"> @Html.ActionLink("Quản lý Nhà xuất bản", "Nhaxuatban", "Admin") </a>
+                        </li>*@
+                        <li class="nav-link" style="vertical-align:central">
+                            <a class="nav-link"> @Html.ActionLink("Quản lý sản phẩm", "SanPham", "Admin", null, new { @class = "a1" }) </a>
+                        </li>
+                        <!--
+     -->
+                    </ul>
+                </div>
+            </div>
+        </nav><br />
+        <div class="container">
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="py-5  hearderadmin">
+            <div class="container">
+                <p class="m-0 text-center text-white">TAP ORGANIC</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="~/Script/jquery.min.js"></script>
+        <script src="~/Script/bootstrap.bundle.min.js"></script>
+    </div>
+</body>
+</html>

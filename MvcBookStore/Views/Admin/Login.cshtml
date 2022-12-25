@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Đăng nhập</title>
+    <meta charset="UTF-8" />
+    <meta name="Designer" content="PremiumPixels.com">
+    <meta name="Author" content="$hekh@r d-Ziner, CSSJUNTION.com">
+    <link rel="stylesheet" type="text/css" href="~/Content/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/structure.css">
+</head>
+<style>
+    .001{
+        background-color: #82cd47;
+    }
+</style>
+
+<body class="001">
+    <div class="box login">
+        <div>
+            
+            <h4 style="color:red; text-align:center">@ViewBag.Thongbao</h4>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <div class="boxBody">
+                <label>Tên đăng nhập</label>
+                <input type="text" name="username" tabindex="1"  required>
+                @ViewData["Loi1"]
+                <label><a href="#" class="rLink" tabindex="5">Quên mật khẩu?</a>Mật khẩu</label>
+                <input type="password" name="password" tabindex="2" required>
+                @ViewData["Loi2"]
+            </div>
+            <button type="submit" class="btnLogin" tabindex="4">Đăng Nhập</button>
+        }
+    </div>
+</body>
+</html>
+

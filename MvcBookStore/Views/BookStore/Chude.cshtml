@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MvcBookStore.Models.CHUDE>
+    <head>
+        <style>
+
+        </style>
+    </head>
+<h1 class="my-4">Danh mục</h1>
+<div class="list-group" style="color: black;">
+    @foreach (var item in Model)
+    {
+    <a href="@Url.Action("SPTheochude","BookStore",new { id=item.MaCD })" class="list-group-item" style="color: black;">
+        @item.TenChuDe
+    </a>
+    }
+</div>

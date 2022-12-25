@@ -1,0 +1,62 @@
+﻿@using MvcBookStore.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<head>
+  <style>
+      .imgproduct{
+          margin-left:27px;
+          margin-top:10px;
+      }
+      .phantrang{
+          padding-left: 46px;
+      }
+  </style>
+</head>
+
+<h3 style="text-align:center; margin-bottom:20px;padding-left: 315px; ">Sản phẩm mới</h3>
+
+
+<div class="row">
+    @foreach (var sach in Model)
+    {
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-80 w-100">
+                <a href="@Url.Action("Details", "BookStore", new { id = sach.Masach })">
+                    <img class="imgproduct" style="align-self:center" alt="@sach.Tensach" src="~/HinhSanPham/@sach.Anhbia" width="210" />
+                </a>
+                <div class="card-body">
+                    <br />
+                    <h4 style="text-align:left">
+                        <span>@sach.Tensach</span>
+                    </h4>
+                    <h5 style="text-align:left">@sach.Giaban đ</h5>
+                    @*<p class="card-text" style="text-align:left">Mô tả</p>*@
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@* Tao lien ket cac trang *@
+    @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount*@
+<br>
+<style>
+    .MenuTrang li {
+        display: inline
+    }
+</style>
+<div class="MenuTrang">
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+    new PagedListRenderOptions()
+    {
+        LiElementClasses = new List<string> { "phantrang"}
+    })
+    
+</div>
