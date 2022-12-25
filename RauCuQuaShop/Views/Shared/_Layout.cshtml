@@ -2,10 +2,12 @@
 @{
     Layout = null;
 }
+
+
 <html>
 <head>
     <meta charset="UTF-8">
- 
+
     <link rel="stylesheet" href="~/Assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="Assets/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="~/Assets/admin/css/style.css">
@@ -18,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-3 mt-2">
                     <div class="header-logo">
-                        <a href="Index"><img src="~/images/logo.png"  style="margin-left: 50px"></a>
+                        <a href="Index"><img src="~/images/logo.png" style="margin-left: 50px"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-2">
@@ -39,10 +41,10 @@
                             </ul>
                         </div>
                         <a href="cart" class="cart">
-                            <ul style="">
+                            <ul style="" onclick="goToCartPage()">
                                 <li><i class="fa-solid fa-cart-shopping"></i></li>
                                 <li>GIỎ HÀNG</li>
-                                <li>0</li>
+                                <li id="cartQuality">0</li>
                             </ul>
                             <div class="drop-cart">
                                 <div class="dropcart-item">Không có sản phẩm nào.</div>
@@ -87,7 +89,75 @@
     </div>
 </header>
 @RenderBody()
+<script type="text/javascript">
+    var cart = [];
+    async function addProduct(id, product) {
+        var product = { productId: id, product: product, quality: 1 };
+  
+        var currentCart = window.localStorage.getItem("cart");
+        if (currentCart == null) {
+            cart.push(product);
+            await window.localStorage.setItem("cart", JSON.stringify(cart));
+        } else {
+            cart = JSON.parse(currentCart);
+            var productExist = false;
+            cart.forEach(p => {
+                if(p.id == product.id) {
+                p.quality++;
+                productExist = true;
+                }
+        });
+        if (!productExist) {
+            cart.push(product);
+        }
+        await window.localStorage.removeItem("cart");
+        await window.localStorage.setItem("cart", JSON.stringify(cart));
+        }
+         await ("cart", JSON.stringify(id));
+         var cartQuality = await window.localStorage.getItem("cartQuality");
+         if (cartQuality != null) {
+             await window.localStorage.removeItem("cartQuality");
+             await window.localStorage.setItem("cartQuality", JSON.stringify(Number(cartQuality) + 1));
+         } else {
+             await window.localStorage.setItem("cartQuality", JSON.stringify(1));
+         }
+        
+         await setCardQuality();
+     }
 
+    async function setCardQuality() {
+        var cartQuality = window.localStorage.getItem("cartQuality");
+        if (cartQuality == null) {
+            document.getElementById("cartQuality").innerHTML = 0;
+            return
+        }
+        document.getElementById("cartQuality").innerHTML = cartQuality;
+    }
+
+    function goToCartPage() {
+        var currentCart = window.localStorage.getItem("cart");
+        if (currentCart != null) {
+            $.ajax({
+                type: 'POST',
+                url: '/home/cart',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: JSON.parse(currentCart),
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            })
+        }
+    }
+
+    document.body.onload = function () {
+        setCardQuality();
+    };
+
+</script>
 <footer id="footer-main">
     <div class="container">
         <div class="row">
@@ -127,7 +197,7 @@
                         <li><a href="news">Tin tức</a></li>
                         <li><a href="contact">Liên hệ</a></li>
                         <li><a href="login">Đăng nhập/ Đăng kí</a></li>
-                       
+
                     </ul>
 
                 </div>
@@ -161,4 +231,6 @@
         </div>
     </div>
 </footer>
+@Scripts.Render("~/Scripts/jquery")
+@RenderSection("scripts", required: false)
 </html>

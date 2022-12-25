@@ -1,4 +1,5 @@
-﻿
+﻿@model RauCuQuaShop.Models.sanpham
+@using System.Globalization;
 @{
     ViewBag.Title = "productDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,22 +31,25 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6 mb-5 ftco-animate">
-                  
+                  @{ 
+                      RauCuQuaShop.Models.ANH[] images = new RauCuQuaShop.Models.ANH[Model.ANHs.Count];
+                      Model.ANHs.ToList().CopyTo(images);
+                  }
                     <div class="image-slider">
                         <ul>
-                            <li><img src="/images/product-2.jpg" onclick="changeImage('one')" id="one"></li>
-                            <li><img src="/images/qua/dau2.png" onclick="changeImage('two')" id="two"></li>
-                            <li><img src="/images/qua/dau3.png" onclick="changeImage('three')" id="three"></li>
-                            <li><img src="/images/qua/dau4.png" onclick="changeImage('four')" id="four"></li>
+                            @foreach (var ig in Model.ANHs)
+                            {
+                                <li><img src="/@ig.URL" onclick="changeImage('@ig.MAANH')" id="@ig.MAANH"></li>
+                            }
                         </ul>
                         <div id="main-image">
-                            <img src="/images/product-2.jpg" id="img-main">
+                            <img src="/@images[0].URL" id="img-main">
                         </div>
                     </div>
 
                 </div>
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                    <h3>Dâu</h3>
+                    <h3>@Model.TENSP</h3>
                     <div class="rating d-flex">
                         <p class="text-left mr-4">
                             <a href="#" class="mr-2">5.0</a>
@@ -62,10 +66,15 @@
                             <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Đã bán</span></a>
                         </p>
                     </div>
-                    <p class="price"><span>40.000 VND</span></p>
+                    @{
+                        RauCuQuaShop.Models.khoiluong[] mass = new RauCuQuaShop.Models.khoiluong[Model.khoiluongs.Count];
+                        Model.khoiluongs.ToList().CopyTo(mass);
+                        <p class="price"><span>@mass[0].GIA_BAN.Value.ToString("C", CultureInfo.GetCultureInfo("vi-VN"))</span></p>
+                    }
+
                     <p>
                         <strong>Mô tả chung</strong>:
-                        Là giống dâu giàu dinh dưỡng, giàu vitamin C tới từ Nhật Bản.
+                        @Model.MOTA
                         <br>
 
                         <strong>Thông tin sản phẩm:</strong>
@@ -82,7 +91,7 @@
                         <div class="col-md-6">
                             <div class="form-group d-flex">
                                 <div class="select-wrap">
-                                    
+
                                     <select name="" id="" class="form-control">
                                         <option value="">300g</option>
                                         <option value="">800g</option>
@@ -100,10 +109,10 @@
                                 <input class="plus is-form" type="button" value="+">
                             </div>
                         </div>
-                    
+
                         <div class="w-100"></div>
                         <div class="col-md-12">
-                        
+
                         </div>
                     </div>
                     <p><a href="cart" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
@@ -126,7 +135,10 @@
                                                 <h3><a href="productDetail"></a>Cherry</h3>
                                                 <div class="d-flex">
                                                     <div class="pricing">
-                                                        <p class="price"><span>40.000 VND</span></p>
+                                                        @{
+                                                            <p class="price"><span>@mass[0].GIA_BAN.Value.ToString("C", CultureInfo.GetCultureInfo("vi-VN"))</span></p>
+                                                        }
+
                                                     </div>
                                                 </div>
                                                 <div class="bottom-area d-flex px-3">

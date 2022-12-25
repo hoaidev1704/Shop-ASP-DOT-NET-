@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe89068697374a628ccd2c4d2f6f97a9" Name="Diagram1">
+        <EntityTypeShape EntityType="projectModel.ANH" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.CTHD" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.danhgia" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.hoadon" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.khoiluong" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.loaisp" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.sanpham" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.taikhoan" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.ttgiaohang" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <AssociationConnector Association="projectModel.FK__ANH__MASP__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__CTHD__MAHD__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__CTHD__MAKL__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__CTHD__MASP__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__danhgia__MASP__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__danhgia__MATK__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__hoadon__MATK__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__khoiluong__MASP__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__sanpham__MALSP__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK__ttgiaohang__MATK__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
